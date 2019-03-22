@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+  {{> main}}
+
+  <div class="grey-section">
+
+    <div class="indiv-product-category">{{product.category}}</div>
+
+    <div class="indiv-product">
+
+      <i id="arrow-left" class="fas fa-angle-left" onclick="plusDivs(-1, '{{id}}')"></i>
+
+      <i id="arrow-right" class="fas fa-angle-right" onclick="plusDivs(+1, '{{id}}')"></i>
+
+      <div class="indiv-product-photos">
+        <img class="indiv-product-image" src={{product.img1}}>
+        <img class="indiv-product-image" src={{product.img2}}>
+        <img class="indiv-product-image" src={{product.img3}}>
+      </div>
+
+    </div>
+
+    <div class="indiv-product-name">{{product.name}}</div>
+    <div class="indiv-product-price">${{product.price}}</div>
+    <div class="indiv-product-des">*{{product.description}}</div>
+    <form class="stripe-button" action="/checkout" method="POST">
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="{{ mydatakey }}"
+        data-amount="01"
+        data-name="Pay With Card"
+        data-description=""
+        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+        data-locale="auto"
+        data-shipping-address="">
+      </script>
+    </form>
+
+
+    </div>
+
+    <div class="footer">
+      <div>CAP TION B ¿ CLOTHING</div>
+      <div>EST 1986</div> 
+    </div>
+
+
+
+<script>
+
+var slideIndex = 1;
+showDivs(slideIndex); 
+
+
+function plusDivs(dir) {
+  showDivs(slideIndex += dir);
+}
+
+function showDivs(sIndex) {
+  var i; 
+  var x = document.getElementsByClassName("indiv-product-image");
+  if (sIndex > x.length) {
+    console.log("aa");
+    slideIndex = 1;
+  }
+  if (sIndex < 1) {
+    console.log("bb");
+    slideIndex = x.length;
+  }
+  for (i=0; i<x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block"; 
+}
+
+</script>
+
+</body>
+

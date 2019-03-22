@@ -1,0 +1,13 @@
+{ "1" :
+  {
+    "id": "1",
+    "class": "product1",
+    "category": "Jackets",
+    "name": "The Vermillion Denim Jacket",
+    "img1": "/photos/vermillion_1.png",
+    "img2": "/photos/vermillion_1.png",
+    "img3": "/photos/vermillion_1.png",
+    "price": "200.00",
+    "description": "Dry Clean Only"
+  }
+}
